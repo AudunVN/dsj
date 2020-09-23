@@ -15,7 +15,7 @@
 		}
 		
 		body {
-			background: #000;
+			background: #584D6F;
 			margin: 0;
 			padding: 0;
 		}
@@ -37,6 +37,8 @@
 			background-position: center bottom;
 
 			overflow: hidden;
+
+			cursor: pointer;
 		}
 
 		.gender-container {
@@ -165,8 +167,14 @@
 			return "img/" + randomNumber(1,32) + ".jpg";
 		}
 
-		document.querySelector(".gender-container").innerText = getGender(genders);
-		document.querySelector(".container").style.backgroundImage = "url(" + getBackgroundUrl() + ")";
+		function newGenderPlease() {
+			document.querySelector(".gender-container").innerText = getGender(genders);
+			document.querySelector(".container").style.backgroundImage = "url(" + getBackgroundUrl() + ")";
+		}
+
+		newGenderPlease();
+
+		document.querySelector(".container").addEventListener("click", newGenderPlease);
 	</script>
 </body>
 </html>
