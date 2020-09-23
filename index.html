@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GENDER SOLD HERE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
+
+		html {
+			font-size: 2em;
+		}
+		
+		body {
+			background: #000;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			position: absolute;
+			
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+			margin: 0;
+			padding: 0;
+			
+			background-image: url('img/1.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center bottom;
+
+			overflow: hidden;
+		}
+
+		.gender-container {
+			position: absolute;
+
+			box-sizing: border-box;
+
+			top: 1em;
+
+			width: 16.25em;
+			max-width: 100%;
+
+			padding: 0.25em;
+			padding-right: 0.75em;
+
+			text-align: right;
+
+			color: #F9F1CF;
+			background-color: rgb(120, 121, 151, 0.87);
+
+			text-shadow:
+				-1px -1px 0 #42404f,  
+				1px -1px 0 #42404f,
+				-1px 1px 0 #42404f,
+				1px 1px 0 #42404f,
+				0 0 0.1em #42404f,
+				0 0 0.1em #42404f;
+
+			font-family: "Sen", sans-serif;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="gender-container">
+		</div>
+	</div>
+
+    <script>
+		/* thanks to REDACTED on the DSJ discord for the list! */
+		let genders = [
+			"your gender is now CUDDLESLUT. you feel amazing!",
+			"your gender is now UNCLASSIFIED. you feel amazing!",
+			"your gender is now HEALTHCARE IS A HUMAN RIGHT",
+			"your gender is now ARTISANAL FEMME. you feel amazing!",
+			"your gender is now RUGGYBABYBUGGYBUMPER?",
+			"your gender is now DESTROMORPH. you feel amazing!",
+			"your gender is now PRISMORPH. you feel amazing!",
+			"your gender is now NPC. you feel amazing!",
+			"your gender is now ESTROMORPH. you feel amazing!",
+			"your gender is now AIR HAND DRYER. you feel amazing!",
+			"your gender is now PYRAMID. you feel amazing!",
+			"your gender is now DAMP MAN. you feel amazing!",
+			"your gender is now BASHFUL. you feel amazing!",
+			"your gender is now BOAT. you feel amazing!",
+			"your gender is now ALTERNATIVE. you feel amazing!",
+			"your gender is now NOISE. you feel amazing!",
+			"you're gender",
+			"your gender is now GHOST. you feel suspicious.",
+			"your gender has surpassed all other genders and become GENDROGON",
+			"your gender is now INDUSTRIAL. you feel amazing!",
+			"your gender is now CARNIVORE. you feel amazing!",
+			"your gender is now GOBLIN. you feel amazing!",
+			"your gender is now CRYSTALLINE. you feel amazing!",
+			"your gender is undefined",
+			"your gender is now FRISBEE. you feel amazing!",
+			"your gender is now COWBOY. you feel amazing!",
+			"your gender is now MONGREL. you feel amazing!",
+			"your gender is now WIZARD. you feel amazing!",
+			"your gender is now DIRT. you feel amazing!",
+			"your gender is now DECOMPOSED. you feel amazing!",
+			"your gender is now THE SECRET GENDER. you feel amazing!",
+			"your gender is now VIRTUOUS. you feel amazing!",
+			"your gender is now POISON. but you are immune!",
+			"your gender is now EMOTICON. you feel amazing!",
+			"your gender is now WIZARDOUS. you feel amazing!",
+			"your gender is now PUNCHIN NAZIS. keep it up!",
+			"your gender is heartbroken. but whose fault is that anyway",
+			"your gender is now THICC THO jsyk you are killen it keep it up",
+			"your gender is now BLOOD MOUTH. you feel amazing!",
+			"your gender is now CROSSFIT. you feel amazing!",
+			"your gender is now SOUND CLONE. you feel amazing!",
+			"your gender is now CRIME BABY. you feel amazing!",
+			"your gender is now HEAVENLY. you feel amazing!",
+			"your gender is now SEAPUNK. you feel only the unfulfilled promises of capital.",
+			"your gender is now SUSAN SARANDON. you feel amazing!",
+			"your gender is now CHRONOGYNE. you feel amazing!",
+			"your gender is now SHOE. you feel amazing!",
+			"your gender is now SLIMEFIEND. you feel amazing!",
+			"your gender is now MEH. you feel no different.",
+			"your gender stayed home today",
+			"your gender is now AGGRAMORPH. you feel amazing!",
+			"your gender is now GIRLBEAST. you feel amazing!",
+			"your gender is now HELLGENDER. you feel amazing!",
+			"your gender is now LYCANTHROPE. what could go wrong",
+			"your gender is now SWARMCAT. you feel amazing!",
+			"your gender is now GRAVEYARD. you feel amazing!",
+			"your gender is now WIZARDLY. you feel amazing!",
+			"your gender is now VODKA. woooooooooooooooooo",
+			"your gender is now PHOTONIKA. you feel amazing!",
+			"your gender is now MEDUSOID. you feel amazing!",
+			"your gender is now SYMBIOTE. you feel amazing!",
+			"your gender ??????!"
+		];
+
+		function getGender(genders) {
+			return genders[Math.floor(Math.random() * genders.length)];
+		}
+		 
+		function randomNumber(min, max) {
+			if (min > max) {
+				let temp = max;
+				max = min;
+				min = max;
+			}
+
+			if (min <= 0) {
+				return Math.floor(Math.random() * (max + Math.abs(min) + 1)) + min;
+			} else {
+				return Math.floor(Math.random() * max) + min;
+			}
+		}
+
+		function getBackgroundUrl() {
+			return "img/" + randomNumber(1,32) + ".jpg";
+		}
+
+		document.querySelector(".gender-container").innerText = getGender(genders);
+		document.querySelector(".container").style.backgroundImage = "url(" + getBackgroundUrl() + ")";
+	</script>
+</body>
+</html>
