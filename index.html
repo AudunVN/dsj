@@ -31,10 +31,11 @@
 			margin: 0;
 			padding: 0;
 			
-			background-image: url('img/1.jpg');
+			/*background-image: url('img/1.jpg');*/
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center bottom;
+			transition: background-image 0.25s ease-in-out;
 
 			overflow: hidden;
 
@@ -77,6 +78,27 @@
 		<div class="gender-container">
 		</div>
 	</div>
+
+	<script>
+		function preloadImage(url) {
+			var img = new Image();
+			img.src = url;
+		}
+		 
+		function randomNumber(min, max) {
+			if (min > max) {
+				let temp = max;
+				max = min;
+				min = max;
+			}
+
+			if (min <= 0) {
+				return Math.floor(Math.random() * (max + Math.abs(min) + 1)) + min;
+			} else {
+				return Math.floor(Math.random() * max) + min;
+			}
+		}
+	</script>
 
     <script>
 		/* thanks to REDACTED on the DSJ discord for the list! */
@@ -148,28 +170,18 @@
 		function getGender(genders) {
 			return genders[Math.floor(Math.random() * genders.length)];
 		}
-		 
-		function randomNumber(min, max) {
-			if (min > max) {
-				let temp = max;
-				max = min;
-				min = max;
-			}
-
-			if (min <= 0) {
-				return Math.floor(Math.random() * (max + Math.abs(min) + 1)) + min;
-			} else {
-				return Math.floor(Math.random() * max) + min;
-			}
-		}
 
 		function getBackgroundUrl() {
 			return "img/" + randomNumber(1,32) + ".jpg";
 		}
 
 		function newGenderPlease() {
-			document.querySelector(".gender-container").innerText = getGender(genders);
-			document.querySelector(".container").style.backgroundImage = "url(" + getBackgroundUrl() + ")";
+			let imageUrl = getBackgroundUrl();
+			preloadImage(imageUrl);
+			setTimeout(function(){
+				document.querySelector(".gender-container").innerText = getGender(genders);
+				document.querySelector(".container").style.backgroundImage = "url(" + imageUrl + ")";
+			}, 250);
 		}
 
 		newGenderPlease();
