@@ -166,6 +166,19 @@
 			"your gender ??????!"
 		];
 
+		let messages = [
+			"you feel lucky!",
+			"you feel so tired",
+			"you feel hungry",
+			"you feel a little better",
+			"you are a little hungry",
+			"you feel very strange",
+			"you need to gendershift. look for a gender kiosk",
+			"your body feels weird and itchy. you need to gendershift"
+		];
+
+		genders.push.apply(genders, messages);
+
 		function getGender(genders) {
 			return genders[Math.floor(Math.random() * genders.length)];
 		}
@@ -174,8 +187,17 @@
 			return "img/" + randomNumber(1,32) + ".jpg";
 		}
 
+		let previousImageUrl = null;
+
 		function newGenderPlease() {
 			let imageUrl = getBackgroundUrl();
+
+			while (imageUrl == previousImageUrl) {
+				imageUrl = getBackgroundUrl();
+			}
+
+			previousImageUrl = imageUrl;
+			
 			preloadImage(imageUrl);
 			setTimeout(function(){
 				document.querySelector(".gender-container").innerText = getGender(genders);
